@@ -1,2 +1,2 @@
-# Database-messages
+# Database Messages
 Samengewerkt met Rens
