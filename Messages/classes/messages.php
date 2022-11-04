@@ -23,8 +23,8 @@ public function __construct() {
 }
 
 // read
-public function read(string $name, string $email, string $message) {
-  $sql = "SELECT * FROM messages";
+public function read() {
+  $sql = "SELECT name, email, message FROM messages";
   $stmt = $this->connection->prepare($sql);
   if ($stmt->execute()) {
       $result = $stmt->get_result();
@@ -48,7 +48,7 @@ public function create(string $name, string $email, string $message) {
 
 // Update 
 public function update(string $name, string $email, string $message) {
-  $sql = "UPDATE messages SET name = ?, email = ?, message = ?  WHERE messages_id=13";
+  $sql = "UPDATE messages SET name = ?, email = ?, message = ?  WHERE messages_id=15";
   $stmt = $this->connection->prepare($sql);
   $stmt->bind_param("sss", $name, $email, $message);
   $stmt->execute();
@@ -64,8 +64,8 @@ public function delete( $messages_id) {
 
 $m = new Messages();
 $m->read('name', 'email', 'message');
-$m->create('Jan', 'jan@gmail.com', 'Dit is een bericht');
+$m->create('Iqra', 'jan@gmail.com', 'dit is een bericht');
 $m->update('Bericht', 'is', 'veranderd');
-$m->delete(14);
+$m->delete(13);
 
 ?>
